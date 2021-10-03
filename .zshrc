@@ -139,5 +139,4 @@ PERL_MM_OPT="INSTALL_BASE=/home/bilguun/perl5"; export PERL_MM_OPT;
 
 export PATH="$PATH:$HOME/.config/composer/vendor/bin:$HOME/.gem/ruby/2.5.0/bin"
 export PATH="/home/bilguun/.gem/ruby/2.6.0/bin:$PATH"
-export PATH="$PATH"
 export CHROME_EXECUTABLE=google-chrome-stable

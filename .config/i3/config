@@ -281,18 +281,25 @@ bindsym $mod+Shift+w exec --no-startup-id brave
 
 # Floating windows
 for_window [title="JetBrains Toolbox"] floating enable
-for_window [title="Calculator"] floating enable
-for_window [title="Customize Look and Feel"] floating enable
-for_window [title="Authy"] floating enable
-for_window [title="Volume Control"] floating enable
+for_window [class="Gnome-calculator"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Authy Desktop"] floating enable
+for_window [class="Pavucontrol"] floating enable
 for_window [title="Ulauncher Preferences"] floating enable
 for_window [title=".*Emulator.*"] floating enable
+for_window [class="Bitwarden"] floating enable
+for_window [class="Protonvpn"] floating enable
+for_window [class="Minecraft Launcher"] floating enable
+for_window [class="MultiMC5"] floating enable
+for_window [class="Caprine"] floating enable
+for_window [class="Blueman-manager"] floating enable
+for_window [class="Org.gnome.Weather"] floating enable
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id picom -bc --config ~/.config/picom.conf
-exec --no-startup-id env GDK_BACKEND=x11 /usr/bin/ulauncher --hide-window --hide-window
+exec --no-startup-id env GDK_BACKEND=x11 /usr/bin/ulauncher --hide-window
 #exec --no-startup-id env GDK_BACKEND=x11 albert
 exec --no-startup-id /usr/bin/libinput-gestures
 exec --no-startup-id telegram-desktop
