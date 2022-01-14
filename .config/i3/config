@@ -22,7 +22,8 @@ font pango:JetBrains Mono 10
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
-set $Locker i3lock -i /home/bilguun/Pictures/Wallpapers/bg-FHD-dual.png --indicator --clock --lock-text "түгжиж байна..." --wrong-text "БУРУУ" --noinput-text "ХООСОН" --verif-text "хмм..." --time-color="ffffffff" --lockfailed-text "түгжиж чадсангүй" --date-color="ffffffff" --layout-color="ffffffff" --ring-color=ffffffaa --ring-width=4 --inside-color=00000000 --insidever-color=00000000 --insidewrong-color=00000000 --ringver-color=304ffeaa --ringwrong-color=ff1744aa --line-color=00000000 --wrong-color=ffffffff --verif-color=ffffffff --keyhl-color=00c853ff --bshl-color=6200eaff --time-font="JetBrains Mono" --date-font="JetBrains Mono" --verif-font="JetBrains Mono" --wrong-font="JetBrains Mono" --layout-font="JetBrains Mono" --nofork
+set $Locker i3lock -i /home/bilguun/Pictures/Wallpapers/image-from-rawpixel-id-3890531-jpeg-dual.jpg --indicator --clock --lock-text "түгжиж байна..." --wrong-text "БУРУУ" --noinput-text "ХООСОН" --verif-text "хмм..." --time-color="ffffffff" --lockfailed-text "түгжиж чадсангүй" --date-color="ffffffff" --layout-color="ffffffff" --ring-color=ffffffaa --ring-width=4 --inside-color=00000000 --insidever-color=00000000 --insidewrong-color=00000000 --ringver-color=304ffeaa --ringwrong-color=ff1744aa --line-color=00000000 --wrong-color=ffffffff --verif-color=ffffffff --keyhl-color=00c853ff --bshl-color=6200eaff --time-font="JetBrains Mono" --date-font="JetBrains Mono" --verif-font="JetBrains Mono" --wrong-font="JetBrains Mono" --layout-font="JetBrains Mono" --nofork --pass-media-keys --pass-screen-keys --pass-power-keys --pass-volume-keys -f --date-str="%G/%m/%d %A" --time-str="%H:%M:%S" --keylayout 1
+
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker
@@ -48,8 +49,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPlay exec playerctl play-pause
+#bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
@@ -294,6 +295,7 @@ for_window [class="MultiMC5"] floating enable
 for_window [class="Caprine"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Org.gnome.Weather"] floating enable
+for_window [class="Nitrogen"] floating enable
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
@@ -314,4 +316,4 @@ exec --no-startup-id /usr/bin/xiccd
 exec --no-startup-id xinput set-prop 13 306 1
 exec --no-startup-id xinput set-prop 13 288 1
 exec --no-startup-id setxkbmap -layout "us,mn" -option "grp:win_space_toggle" -option "grp:alt_shift_toggle"
-exec --no-startup-id ir-battery-popup -L 10 -n
+exec --no-startup-id i3-battery-popup -L 20 -l 15 -n
