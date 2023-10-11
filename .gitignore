@@ -1,2 +1,30 @@
+# Ignore everything by default
 *
+
+
+# i3wm
+!.config
+!.config/i3
+!.config/i3/**/*
+
+# polybar
+!.config/polybar
+!.config/polybar/**/*
+
+# rofi
+!.config/rofi
+!.config/rofi/**/*
+
+# vim
+!.vim
+!.vim/**/*
+
+# zsh
+!.zshrc
+
+# git
+!.gitconfig
 !.gitignore
+
+# wezterm
+!.wezterm.lua

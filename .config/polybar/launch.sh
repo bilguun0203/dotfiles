@@ -9,5 +9,5 @@ while grep -x polybar >/dev/null; do sleep 1; done
 # Launch the example bar
 polybar top_bar
 # polybar bottom_bar
-polybar top_bar_second
+# polybar top_bar_second
 

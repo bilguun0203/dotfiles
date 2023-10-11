@@ -29,7 +29,7 @@ alert = #e53935
 seperator = #40C4FF
 
 [bar/top_bar]
-monitor = ${env:MONITOR:eDP1}
+; monitor = ${env:MONITOR:eDP1}
 width = 100%
 height = 24
 ;offset-x = 1%
@@ -60,7 +60,7 @@ font-1 = "FontAwesome 5 Pro:size=10;2"
 font-2 = "FontAwesome 5 Brands:size=10;2"
 
 modules-left = launcher i3 xwindow
-modules-center = mpd
+#modules-center = mpd
 modules-right = filesystem xbacklight pulseaudio cpu memory temperature wlan eth xkeyboard date battery powermenu
 
 tray-position = right
@@ -85,7 +85,7 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/top_bar_second]
-monitor = ${env:MONITOR:HDMI1}
+; monitor = ${env:MONITOR:HDMI1}
 width = 100%
 height = 24
 radius = 6
@@ -217,18 +217,18 @@ label-urgent-padding = 2
 ; label-separator = |
 
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+#[module/mpd]
+#type = internal/mpd
+#format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+#icon-prev = 
+#icon-stop = 
+#icon-play = 
+#icon-pause = 
+#icon-next = 
 
-label-song-maxlen = 25
-label-song-ellipsis = true
+#label-song-maxlen = 25
+#label-song-ellipsis = true
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -272,7 +272,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = wlo1
 interval = 1.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -295,7 +295,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp2s0
+interface = enp5s0
 interval = 1.0
 
 ;format-connected-underline = #55aa55

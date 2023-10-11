@@ -19,30 +19,32 @@ font pango:JetBrains Mono 10
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
-set $Locker i3lock -i /home/bilguun/Pictures/Wallpapers/image-from-rawpixel-id-3890531-jpeg-dual.jpg --indicator --clock --lock-text "түгжиж байна..." --wrong-text "БУРУУ" --noinput-text "ХООСОН" --verif-text "хмм..." --time-color="ffffffff" --lockfailed-text "түгжиж чадсангүй" --date-color="ffffffff" --layout-color="ffffffff" --ring-color=ffffffaa --ring-width=4 --inside-color=00000000 --insidever-color=00000000 --insidewrong-color=00000000 --ringver-color=304ffeaa --ringwrong-color=ff1744aa --line-color=00000000 --wrong-color=ffffffff --verif-color=ffffffff --keyhl-color=00c853ff --bshl-color=6200eaff --time-font="JetBrains Mono" --date-font="JetBrains Mono" --verif-font="JetBrains Mono" --wrong-font="JetBrains Mono" --layout-font="JetBrains Mono" --nofork --pass-media-keys --pass-screen-keys --pass-power-keys --pass-volume-keys -f --date-str="%G/%m/%d %A" --time-str="%H:%M:%S" --keylayout 1
-
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-# set $refresh_i3status killall -SIGUSR1 i3status
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
@@ -55,27 +57,37 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Screenshot
-bindsym Print exec --no-startup-id gnome-screenshot -i
-bindsym Shift+Print exec --no-startup-id gnome-screenshot -a
-bindsym Alt+Print exec --no-startup-id gnome-screenshot -w
+#bindsym Print exec --no-startup-id gnome-screenshot -i
+#bindsym Shift+Print exec --no-startup-id gnome-screenshot -a
+#bindsym Alt+Print exec --no-startup-id gnome-screenshot -w
+bindsym $mod+Shift+s exec --no-startup-id xfce4-screenshooter -s ~/Pictures/Screenshots
+bindsym $mod+Control+Shift+S exec --no-startup-id xfce4-screenshooter -r -s ~/Pictures/Screenshots
+bindsym $mod+Control+s exec --no-startup-id xfce4-screenshooter -f -s ~/Pictures/Screenshots
+bindsym $mod+mod1+s exec --no-startup-id xfce4-screenshooter -w -s ~/Pictures/Screenshots
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
+
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec wezterm 
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+d exec rofi -show run
-#bindsym $mod+d exec rofi -show combi -config $HOME/.config/i3/rofi.conf -combi-modi drun 
-#bindsym $mod+d exec rofi -combi-modi drun#ssh#run -theme slate -font "hack 10" -show combi -icon-theme "Papirus" -show-icons -modi calc
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Shift+d exec --no-startup-id dmenu_run
+#bindsym $mod+d exec --no-startup-id rofi -combi-modi window#drun#ssh -theme solarized -font "Hack 12" -show combi -icon-theme "Pop" -show-icon 
+# A more modern dmenu replacement is rofi:
+# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null"
+# There also is i3-dmenu-desktop which only displays applications shipping a
+# .desktop file. It is a wrapper around dmenu, so you need that installed.
+# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -116,10 +128,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+Shift+f floating toggle
+bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -152,7 +164,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-workspace 9 output "HDMI1"
+# workspace 9 output "HDMI1"
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -165,6 +177,11 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+bindsym $mod+Control+Left workspace prev
+bindsym $mod+Control+Right workspace next
+bindsym mod1+Control+Left workspace prev
+bindsym mod1+Control+Right workspace next
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -240,24 +257,26 @@ mode "$mode_system" {
 
 bindsym mod1+F4 mode "$mode_system"
 
-## Manual management of external displays
-# Set the shortcuts and what they do
-set $mode_display Ext Screen (h) HDMI ON, (x) HDMI OFF
-mode "$mode_display" {
-    bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --right-of eDP1, mode "default"
-    bindsym x exec --no-startup-id xrandr --output HDMI1 --auto --off, mode "default"
+# ## Manual management of external displays
+# # Set the shortcuts and what they do
+# set $mode_display Ext Screen (h) HDMI ON, (x) HDMI OFF
+# mode "$mode_display" {
+#     bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --right-of eDP1, mode "default"
+#     bindsym x exec --no-startup-id xrandr --output HDMI1 --auto --off, mode "default"
 
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-# Declare here the shortcut to bring the display selection menu
-bindsym $mod+x mode "$mode_display"
+#     # back to normal: Enter or Escape
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
+# # Declare here the shortcut to bring the display selection menu
+# bindsym $mod+x mode "$mode_display"
 
 #border none
 for_window [class="^.*"] border pixel 1
 for_window [class="Ulauncher"] border pixel 0
+for_window [class="Xfce4-notifyd"] border pixel 0
 for_window [title="albert"] border pixel 0
+for_window [window_role="Popup"] border pixel 0
 
 # Gaps
 gaps inner 5
@@ -270,15 +289,9 @@ bindsym $mod+u       gaps inner current plus 6
 bindsym $mod+Shift+y gaps outer current minus 6
 bindsym $mod+Shift+u gaps outer current plus 6
 
-# Screen locker
-bindsym $mod+Shift+x exec --no-startup-id $Locker
-
 assign [class="TelegramDesktop"] $WS10
 assign [class="Slack"] $WS10
 assign [class="discord"] $WS10
-
-# Shortcuts
-bindsym $mod+Shift+w exec --no-startup-id brave
 
 # Floating windows
 for_window [title="JetBrains Toolbox"] floating enable
@@ -298,22 +311,14 @@ for_window [class="Org.gnome.Weather"] floating enable
 for_window [class="Nitrogen"] floating enable
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
+#env GDK_BACKEND=x11 /
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id picom -bc --config ~/.config/picom.conf
-exec --no-startup-id env GDK_BACKEND=x11 /usr/bin/ulauncher --hide-window
-#exec --no-startup-id env GDK_BACKEND=x11 albert
-exec --no-startup-id /usr/bin/libinput-gestures
+exec --no-startup-id usr/bin/ulauncher --hide-window
 exec --no-startup-id telegram-desktop
 exec --no-startup-id blueman-applet
-exec --no-startup-id /usr/lib/evolution-data-server/evolution-alarm-notify
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
-#exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
-exec --no-startup-id /usr/bin/xiccd
-
-exec --no-startup-id xinput set-prop 13 306 1
-exec --no-startup-id xinput set-prop 13 288 1
-exec --no-startup-id setxkbmap -layout "us,mn" -option "grp:win_space_toggle" -option "grp:alt_shift_toggle"
-exec --no-startup-id i3-battery-popup -L 20 -l 15 -n
+exec --no-startup-id solaar --window=hide
+exec_always setxkbmap -layout "us,mn" -option "grp:alt_space_toggle"

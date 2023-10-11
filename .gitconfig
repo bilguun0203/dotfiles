@@ -1,15 +1,5 @@
 [user]
 	email = bilguun0203@gmail.com
 	name = Bilguun Ochirbat
-	signingkey = 92AEB5BB4E59A02FA8EDFE73F76D7C4D2964B955
-[commit]
-	gpgsign = true
-[core]
-	autocrlf = input
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
 [init]
 	defaultBranch = main
