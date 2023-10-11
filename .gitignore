@@ -1,6 +1,7 @@
 # Ignore everything by default
 *
 
+!README.md
 
 # i3wm
 !.config
@@ -11,11 +12,19 @@
 !.config/polybar
 !.config/polybar/**/*
 
+# picom
+!.config/picom.conf
+
 # rofi
 !.config/rofi
 !.config/rofi/**/*
 
+# solaar
+!.config/solaar
+!.config/solaar/**/*
+
 # vim
+!.vimrc
 !.vim
 !.vim/**/*
 
@@ -28,3 +37,4 @@
 
 # wezterm
 !.wezterm.lua
+
