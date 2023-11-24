@@ -7,5 +7,4 @@ set expandtab
 set number relativenumber
 
 set termguicolors
-colorscheme ghdark
 
