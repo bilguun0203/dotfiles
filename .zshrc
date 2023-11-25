@@ -97,18 +97,52 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias zshconfig="nvim ~/.zshrc"
+# alias ohmyzsh="nvim ~/.oh-my-zsh"
 
 alias ipa="ip -c addr"
 alias dotf='git --git-dir="$HOME/.dot.git" --work-tree="$HOME"'
 
-[[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=500000
+export SAVEHIST=500000
+setopt EXTENDED_HISTORY
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+
+if [[ $(uname) == "Darwin" ]]; then
+    export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
+    #export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+    export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
+
+    #export PATH="$HOME/.local/share/gem/ruby/2.6.0/bin/:$PATH"
+    if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+      export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+    #  export PATH=/Users/bilguun/.gem/ruby/3.2.0/bin:$PATH
+      export PATH=`gem environment gemdir`/bin:$PATH
+    fi
+
+    export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+    export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
+    export PATH="$HOME/go/bin:$PATH"
+
+    export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+
+    alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+    [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+else
+    [[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
+fi
 
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+export EDITOR='nvim'
 export VISUAL='nvim'
 
 export CHROME_EXECUTABLE=brave
+
