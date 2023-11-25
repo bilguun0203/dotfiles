@@ -1,6 +1,6 @@
 configuration {
 	modes: "window,drun,ssh,calc,emoji:rofimoji,power:rofi-power-menu";
-	font: "JetBrainsMono Nerd Font, Bold 10";
+	font: "JetBrainsMono NF, Bold 10";
 	location: 0;
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/

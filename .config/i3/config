@@ -328,3 +328,4 @@ exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec --no-startup-id solaar --window=hide
 exec_always --no-startup-id setxkbmap -layout "us,mn" -option "grp:alt_space_toggle"
+exec_always --no-startup-id openrgb -p magenta
