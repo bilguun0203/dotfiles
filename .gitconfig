@@ -3,3 +3,7 @@
 	name = Bilguun Ochirbat
 [init]
 	defaultBranch = main
+[commit]
+	gpgsign = true
+[pull]
+	ff = only
