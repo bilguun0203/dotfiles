@@ -3,15 +3,18 @@ if [[ $(uname) == "Darwin" ]]; then
     export ANDROID_HOME=$HOME/Library/Android/sdk
     export PATH=$PATH:$ANDROID_HOME/emulator
     export PATH=$PATH:$ANDROID_HOME/platform-tools
-    export PATH=$PATH:$ANDROID_HOME/tools
-    export PATH=$PATH:$ANDROID_HOME/tools/bin
+    export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+    # export PATH=$PATH:$ANDROID_HOME/tools
+    # export PATH=$PATH:$ANDROID_HOME/tools/bin
     # Flutter
-    export PATH=$PATH:$HOME/sdks/flutter3/bin
+    # export FLUTTER_ROOT=$HOME/sdks/flutter
+    export FLUTTER_ROOT=$HOME/fvm/default
+    export PATH=$PATH:$FLUTTER_ROOT/bin
     export PATH=$PATH:$HOME/.pub-cache/bin
-    export FLUTTER_ROOT=$HOME/sdks/flutter
 
-    #export JAVA_HOME=`/usr/libexec/java_home -v 11`
-    export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
+    export JAVA_HOME=`/usr/libexec/java_home -v 21`
+    # export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
+    export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 
     #alias node14='export PATH="/opt/homebrew/opt/node@14/bin:$PATH"'
     #alias node16='export PATH="/opt/homebrew/opt/node@16/bin:$PATH"'
@@ -43,7 +46,8 @@ else
     export PATH=$PATH:$ANDROID_HOME/emulator
     export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
     # Flutter
-    export PATH=$PATH:$HOME/sdks/flutter/bin
+    export FLUTTER_ROOT=$HOME/sdks/flutter
+    export PATH=$PATH:$FLUTTER_ROOT/bin
     export PATH=$PATH:$HOME/.pub-cache/bin
 fi
 

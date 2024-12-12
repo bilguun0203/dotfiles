@@ -38,3 +38,5 @@
 # wezterm
 !.wezterm.lua
 
+# tmux
+!.tmux.conf
