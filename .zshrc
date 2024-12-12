@@ -100,7 +100,6 @@ fi
 # alias ohmyzsh="nvim ~/.oh-my-zsh"
 
 alias ipa="ip -c addr"
-alias dotf='git --git-dir="$HOME/.dot.git" --work-tree="$HOME"'
 alias vim=nvim
 
 export HISTFILE="$HOME/.zsh_history"
