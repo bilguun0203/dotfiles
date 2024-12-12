@@ -10,15 +10,22 @@ config.color_scheme = "Rosé Pine (base16)"
 -- config.color_scheme = "Rosé Pine Dawn (base16)"
 -- config.color_scheme = "Kanagawa (Gogh)"
 config.window_background_opacity = 0.96
-config.font_size = 14
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 config.window_frame = {
 	font = wezterm.font({ family = "JetBrains Mono", weight = "Bold" }),
-	font_size = 12.0,
+	font_size = 10.0,
 	active_titlebar_bg = "#333333",
 	inactive_titlebar_bg = "#333333",
 }
+
+if wezterm.target_triple == 'aarch64-apple-darwin' then
+	config.font_size = 14
+  config.window_frame.font_size = 12
+else
+	config.font_size = 10
+end
+
 
 config.colors = {
 	tab_bar = {

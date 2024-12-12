@@ -2,6 +2,16 @@
 
 ## Requirements
 
+Initialization
+
+```sh
+yay -S stow
+```
+
+```sh
+stow .
+```
+
 ### ZSH
 
 **Oh My Zsh:**
