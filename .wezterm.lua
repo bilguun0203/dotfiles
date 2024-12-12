@@ -19,13 +19,12 @@ config.window_frame = {
 	inactive_titlebar_bg = "#333333",
 }
 
-if wezterm.target_triple == 'aarch64-apple-darwin' then
+if wezterm.target_triple == "aarch64-apple-darwin" then
 	config.font_size = 14
-  config.window_frame.font_size = 12
+	config.window_frame.font_size = 12
 else
 	config.font_size = 10
 end
-
 
 config.colors = {
 	tab_bar = {
