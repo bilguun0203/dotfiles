@@ -7,3 +7,9 @@
 	gpgsign = false
 [pull]
 	ff = only
+[core]
+	autocrlf = input
+[gpg]
+	sign = false
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
