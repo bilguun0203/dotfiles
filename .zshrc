@@ -143,8 +143,6 @@ export VISUAL='nvim'
 
 eval "$(fzf --zsh)"
 
-
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -163,8 +161,6 @@ if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/mamba.sh" ]; then
     . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
-
-source "$HOME/.rye/env"
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
