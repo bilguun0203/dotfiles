@@ -46,8 +46,9 @@ else
     export PATH=$PATH:$ANDROID_HOME/emulator
     export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
     # Flutter
-    export FLUTTER_ROOT=$HOME/sdks/flutter
-    export PATH=$PATH:$FLUTTER_ROOT/bin
+    export PATH=$PATH:$HOME/fvm/default/bin
     export PATH=$PATH:$HOME/.pub-cache/bin
+    export PATH="$HOME/go/bin:$PATH"
+    export PATH="/home/bilguun/.local/bin:$PATH"
 fi
 

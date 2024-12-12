@@ -1,5 +1,6 @@
 configuration {
-	modes: "window,drun,ssh,calc,emoji:rofimoji,power:rofi-power-menu";
+/*	modes: "window,drun,ssh,calc,emoji:rofimoji,power:rofi-power-menu";*/
+	modes: "window,drun,ssh,calc,emoji:rofimoji,combi";
 	font: "JetBrainsMono NF, Bold 10";
 	location: 0;
 /*	yoffset: 0;*/
@@ -70,6 +71,7 @@ configuration {
 	display-calc: "󰃬 Тооны машин";
 	display-emoji: " ";
 	display-power: " ";
+	display-power-menu: " ";
 /*	kb-primary-paste: "Control+V,Shift+Insert";*/
 /*	kb-secondary-paste: "Control+v,Insert";*/
 /*	kb-clear-line: "Control+w";*/

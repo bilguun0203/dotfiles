@@ -314,7 +314,7 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-date = " %Y-%m-%d"
+date = " %Y-%m-%d %a"
 
 time = %H:%M:%S
 
@@ -445,7 +445,7 @@ type = custom/text
 content =  OBI
 content-foreground = ${colors.secondary}
 content-padding = 1
-click-left = ulauncher
+click-left = rofi -show drun
 
 [module/powermenu]
 type = custom/menu

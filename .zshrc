@@ -172,3 +172,10 @@ source "$HOME/.rye/env"
 [[ -f /Users/bilguun/.dart-cli-completion/zsh-config.zsh ]] && . /Users/bilguun/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+
+eval "$(fzf --zsh)"
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/bilguun/.dart-cli-completion/zsh-config.zsh ]] && . /home/bilguun/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
