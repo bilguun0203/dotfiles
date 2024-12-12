@@ -2,10 +2,12 @@
 
 ## Requirements
 
-Initialization
+```sh
+sudo apt install stow neovim fzf zsh
+```
 
 ```sh
-yay -S stow
+yay -S stow neovim fzf zsh
 ```
 
 ```sh

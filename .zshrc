@@ -167,3 +167,6 @@ fi
 [[ -f /Users/bilguun/.dart-cli-completion/zsh-config.zsh ]] && . /Users/bilguun/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+# Atuin
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh --disable-up-arrow)"
