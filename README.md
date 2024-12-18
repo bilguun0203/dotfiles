@@ -3,11 +3,11 @@
 ## Requirements
 
 ```sh
-sudo apt install stow neovim fzf zsh
+sudo apt install stow neovim fzf zsh autojump
 ```
 
 ```sh
-yay -S stow neovim fzf zsh
+yay -S stow neovim fzf zsh autojump
 ```
 
 ```sh
@@ -20,12 +20,6 @@ stow .
 
 ```sh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-**ZSH theme:**
-
-```sh
-git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
 ```
 
 **ZSH plugins:**

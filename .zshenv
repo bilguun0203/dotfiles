@@ -50,5 +50,6 @@ else
     export PATH=$PATH:$HOME/.pub-cache/bin
     export PATH="$HOME/go/bin:$PATH"
     export PATH="/home/bilguun/.local/bin:$PATH"
+    export PATH="$PATH:/opt/nvim-linux64/bin"
 fi
 

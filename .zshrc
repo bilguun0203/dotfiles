@@ -132,6 +132,7 @@ if [[ $(uname) == "Darwin" ]]; then
     [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 else
     [[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
+    [[ -s /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
 fi
 
 if [ -d "$HOME/bin" ] ; then
@@ -141,7 +142,7 @@ fi
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-eval "$(fzf --zsh)"
+#eval "$(fzf --zsh)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
