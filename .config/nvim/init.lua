@@ -71,6 +71,11 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+vim.opt.langmap = vim.fn.join({
+	escape(mn_caps) .. ";" .. escape(en_caps),
+	escape(mn) .. ";" .. escape(en),
+}, ",")
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -863,6 +868,18 @@ require("lazy").setup({
 		},
 	},
 })
+
+-- Map cyrillic mongolian characters to en layout
+-- This only works with default vim bindings, not with the custom
+local function escape(str)
+	local escape_chars = [[;,."|\]]
+	return vim.fn.escape(str, escape_chars)
+end
+
+local en_caps = [[_+QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>?]]
+local mn_caps = [[ЕЩФЦУЖЭНГШҮЗКЪЙЫБӨАХРОЛДПЯЧЁСМИТЬВЮ]]
+local en = [[-=qwertyuiop[]asdfghjkl;'zxcvbnm,./]]
+local mn = [[ещфцужэнгшүзкъйыбөахролдпячёсмитьвю]]
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

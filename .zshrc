@@ -118,7 +118,7 @@ if [[ $(uname) == "Darwin" ]]; then
     if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
       export PATH=/opt/homebrew/opt/ruby/bin:$PATH
     #  export PATH=/Users/bilguun/.gem/ruby/3.2.0/bin:$PATH
-      export PATH=`gem environment gemdir`/bin:$PATH
+      #export PATH=`gem environment gemdir`/bin:$PATH
     fi
 
     export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
