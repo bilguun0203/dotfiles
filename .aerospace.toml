@@ -135,6 +135,8 @@ alt-9 = 'workspace 9'
 # alt-x = 'workspace X'
 # alt-y = 'workspace Y'
 # alt-z = 'workspace Z'
+ctrl-alt-right = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace --wrap-around next'
+ctrl-alt-left = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace --wrap-around prev'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
