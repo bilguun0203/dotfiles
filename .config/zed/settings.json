@@ -37,7 +37,14 @@
   "buffer_font_features": {
     "calt": false
   },
-  "show_whitespaces": "all",
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+    "background_coloring": "disabled",
+    "active_line_width": 4,
+    "line_width": 2
+  },
+  "show_whitespaces": "boundary",
   "relative_line_numbers": true,
   "terminal": {
     "font_size": 13
