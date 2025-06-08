@@ -48,5 +48,14 @@
   "relative_line_numbers": true,
   "terminal": {
     "font_size": 13
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+      "update_debounce_ms": 150,
+      "padding": 4,
+      "min_column": 0,
+      "max_severity": "error"
+    }
   }
 }
