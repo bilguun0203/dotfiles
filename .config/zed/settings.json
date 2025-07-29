@@ -13,21 +13,24 @@
       "proxy": null,
       "proxy_no_verify": null
     },
-    "enabled_in_assistant": false
+    "enabled_in_text_threads": false
   },
   "icon_theme": "Catppuccin Mocha",
-  "assistant": {
+  "agent": {
+    "default_profile": "ask",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4o"
-    },
-    "version": "2"
+      "model": "claude-sonnet-4"
+    }
   },
   "features": {
     "edit_prediction_provider": "zed",
     "copilot": true
   },
   "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "on_yank"
+  },
   "theme": "Catppuccin Mocha",
   "autosave": "on_focus_change",
   "buffer_font_family": "JetBrains Mono",
@@ -56,6 +59,11 @@
       "padding": 4,
       "min_column": 0,
       "max_severity": "error"
+    }
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["ruff"]
     }
   }
 }
