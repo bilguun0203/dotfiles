@@ -1,3 +1,6 @@
+if [ -n "${ZSH_DEBUGRC+1}" ]; then
+    zmodload zsh/zprof
+fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -171,3 +174,7 @@ fi
 # Atuin
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh --disable-up-arrow)"
+
+if [ -n "${ZSH_DEBUGRC+1}" ]; then
+    zprof
+fi
