@@ -29,7 +29,7 @@ alert = #e53935
 seperator = #40C4FF
 
 [bar/top_bar]
-; monitor = ${env:MONITOR:eDP1}
+monitor = DP-3-8
 width = 100%
 height = 24
 ;offset-x = 1%
@@ -85,7 +85,7 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/top_bar_second]
-; monitor = ${env:MONITOR:HDMI1}
+monitor = HDMI-4
 width = 100%
 height = 24
 radius = 6
@@ -112,7 +112,7 @@ font-2 = "FontAwesome 5 Brands:size=10;2"
 
 modules-left = launcher i3 xwindow
 modules-center = mpd
-modules-right = filesystem xbacklight pulseaudio cpu memory temperature wlan eth xkeyboard date battery powermenu
+modules-right = pulseaudio xkeyboard date powermenu
 
 tray-position = right
 tray-padding = 2

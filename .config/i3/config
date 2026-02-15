@@ -175,7 +175,8 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-# workspace 9 output "HDMI1"
+workspace 1 output "DP-3-8"
+workspace 9 output "HDMI-4"
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -324,6 +325,9 @@ for_window [class="Caprine"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Org.gnome.Weather"] floating enable
 for_window [class="Nitrogen"] floating enable
+
+exec --no-startup-id xrandr --output DP-3-8 --primary --mode 3840x2160 --pos 0x0 --scale 0.9999x0.9999
+exec --no-startup-id xrandr --output HDMI-4 --right-of DP-3-8 --rotate left --mode 1920x1080 --pos 3840x0 --scale 1x1
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #env GDK_BACKEND=x11 /
